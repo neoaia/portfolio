@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export interface ModalProject {
     name: string;
     shortDescription: string;
-    subtitle: string;
+    subtitle: string | string[]; // Updated to accept string or array of strings
     position: string;
     year: string;
     techStack?: string[];
@@ -67,6 +67,11 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     if (!project) return null;
 
     const hasLinks = project.hasGithub || project.hasFigma || project.hasSite;
+
+    // Normalize subtitle to always be an array for rendering
+    const paragraphs = Array.isArray(project.subtitle)
+        ? project.subtitle
+        : [project.subtitle];
 
     return (
         <div
@@ -148,16 +153,37 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
                         <div className="border-t-2 border-black my-3 md:my-4" />
 
-                        <p
-                            className="text-black leading-relaxed"
-                            style={{
-                                fontFamily: "Geist, sans-serif",
-                                fontSize: "clamp(0.85rem, 2vh, 2.2vh)",
-                                letterSpacing: "-0.04em",
-                            }}
-                        >
-                            {project.subtitle}
-                        </p>
+                        {/* Updated Subtitle Section */}
+                        <div className="flex flex-col gap-3">
+                            {paragraphs.map((paragraph, index) => (
+                                <p
+                                    key={index}
+                                    className="text-black leading-relaxed"
+                                    style={{
+                                        fontFamily: "Geist, sans-serif",
+                                        fontSize: "clamp(0.85rem, 2vh, 2.2vh)",
+                                        letterSpacing: "-0.04em",
+                                    }}
+                                >
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+
+                        {/* Tech Stack Section */}
+                        {project.techStack && project.techStack.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-4 md:mt-5">
+                                {project.techStack.map((tech, index) => (
+                                    <span
+                                        key={index}
+                                        className="bg-black inline-flex items-center px-2 py-1 gap-1 shrink-0 text-pink font-bold text-xs md:text-sm"
+                                        style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.03em" }}
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
 
