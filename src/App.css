@@ -61,10 +61,16 @@
   font-family: "BBH Hegarty", sans-serif;
 }
 
-/* ── Marquee item ── */
+/* ── Marquee item — desktop ── */
 .marquee-item {
   letter-spacing: -0.05em;
   font-size: 45vh;
+}
+
+/* ── Marquee item — mobile/tablet ── */
+.marquee-item-mobile {
+  letter-spacing: -0.05em;
+  font-size: clamp(4rem, 28vw, 22vh);
 }
 
 /* ── "background:" heading ── */
@@ -86,6 +92,18 @@
   line-height: 0.8;
 }
 
+@media (max-width: 767px) {
+  .contact-heading {
+    font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-heading {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+  }
+}
+
 /* ── PROJECTS stacked word ── */
 .projects-word {
   font-family: "BBH Hegarty", sans-serif;
@@ -94,7 +112,6 @@
   line-height: 0.9;
   font-size: 24vh;
 
-  /* Make it totally uncopyable */
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -105,90 +122,34 @@
   will-change: transform, opacity;
 }
 
-/* ── Project list ── */
-.project-list-inner {
-  padding: 0 clamp(2rem, 5vw, 5rem);
+/* ── Mobile content items — strip fixed widths ── */
+@media (max-width: 1023px) {
+  /* Force all content cards inside mobile background section to full width */
+  .mobile-section-content > * {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Make images in experience/offer cards full width */
+  .mobile-section-content img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+  }
 }
 
-.project-cols-header {
-  display: grid;
-  grid-template-columns: 2rem 1fr 120px;
-  gap: 1rem;
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.1rem;
-  border-bottom: 1px solid rgba(132, 158, 23, 0.35);
+/* ── Touch targets — minimum 44px hit area on mobile ── */
+@media (max-width: 767px) {
+  button,
+  a {
+    min-height: 44px;
+  }
 }
 
-.col-header {
-  font-family: "Geist", sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.28);
-}
-
-/* ── Project row ── */
-.project-row {
-  display: grid;
-  grid-template-columns: 2rem 1fr 120px;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(132, 158, 23, 0.18);
-  border-radius: 4px;
-  cursor: pointer;
-  transition:
-    background 0.22s,
-    padding-left 0.22s;
-}
-.project-row:hover {
-  background: rgba(132, 158, 23, 0.07);
-  padding-left: 8px;
-}
-
-.project-index {
-  font-family: "Geist", sans-serif;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: rgba(0, 0, 0, 0.3);
-  transition: color 0.22s;
-}
-.project-row:hover .project-index {
-  color: #849e17;
-}
-
-.project-name {
-  font-family: "Geist", sans-serif;
-  font-weight: 800;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: #1a1a1a;
-  transition: color 0.22s;
-}
-.project-row:hover .project-name {
-  color: #849e17;
-}
-
-.project-type {
-  font-family: "Geist", sans-serif;
-  font-style: italic;
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-  color: rgba(0, 0, 0, 0.38);
-}
-
-.project-strip {
-  height: 38px;
-  border-radius: 3px;
-  transform-origin: left center;
-  opacity: 0.5;
-  transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    opacity 0.22s;
-}
-.project-row:hover .project-strip {
-  transform: scaleX(1.05);
-  opacity: 1;
+/* ── Prevent horizontal overflow on mobile ── */
+@media (max-width: 1023px) {
+  .portfolio-root {
+    overflow-x: hidden;
+  }
 }

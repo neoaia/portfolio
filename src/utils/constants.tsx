@@ -1,4 +1,5 @@
 import React from "react";
+
 // =============================================================================
 // #region MARQUEE / TYPING
 // =============================================================================
@@ -43,9 +44,36 @@ export const INSPIRE_WORDS = [
 // =============================================================================
 // #region OFFER
 // =============================================================================
-import uiuxImg from "../assets/uiux.png";
-import webdevImg from "../assets/webdev.png";
-import mobiledevImg from "../assets/mobiledev.png";
+import uiuxImg from "../assets/uiux.webp";
+import webdevImg from "../assets/webdev.webp";
+import mobiledevImg from "../assets/mobiledev.webp";
+
+const UIUX_OFFER = [
+  { label: "Animation" },
+  { label: "Wireframing" },
+  { label: "Prototyping" },
+  { label: "Modern" },
+  { label: "Personalized" },
+  { label: "Artistic" },
+  { label: "Intuitive" },
+];
+
+const WEBDEV_OFFER = [
+  { label: "Responsive Design" },
+  { label: "Frontend Development" },
+  { label: "API Integration" },
+  { label: "Performance Optimization" },
+  { label: "SEO Optimization" },
+  { label: "Deployment" },
+];
+
+const MOBILEDEV_OFFER = [
+  { label: "UI Implementation" },
+  { label: "API Integration" },
+  { label: "App Optimization" },
+  { label: "Device Integration" },
+  { label: "Deployment" },
+];
 
 export const OFFER_ITEMS: Array<
   | { type: "tile"; label: string; sub: string; size: string }
@@ -53,22 +81,30 @@ export const OFFER_ITEMS: Array<
 > = [
     {
       type: "node",
-      node: <div className="w-[10vw]"></div>,
+      node: <div className="hidden lg:block lg:w-[10vw]"></div>,
     },
     {
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[35vw] bg-black px-5 pb-6 pt-4 text-black"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[45vw] xl:w-[35vw] bg-black px-5 pb-6 pt-4 text-black overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex flex-row justify-between items-start">
-            <img src={uiuxImg} alt="UI/UX Design" className="w-40 h-40 object-cover" />
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink text-right">01</div>
+            <div className="w-20 h-20 sm:w-28 sm:h-28 lg:w-28 lg:h-28 xl:w-40 xl:h-40 shrink-0">
+              <img src={uiuxImg} alt="UI/UX Design" className="w-full h-full object-contain object-left-top shrink-0" />
+            </div>
+            <div className="filter-fuzzy-text text-4xl lg:text-4xl xl:text-5xl font-bold text-pink text-right shrink-0">01</div>
           </div>
-          <div className="text-pink flex flex-col gap-2">
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink">ui/ux design</div>
-            <div className="text-xl">University of Caloocan City</div>
+          <div className="text-pink flex flex-col gap-2 mt-auto">
+            <div className="filter-fuzzy-text text-3xl lg:text-4xl xl:text-5xl font-bold text-pink">ui/ux design</div>
+            <div className="flex flex-row flex-wrap gap-x-1 gap-y-1 text-black font-bold text-sm lg:text-base xl:text-lg">
+              {UIUX_OFFER.map(({ label }) => (
+                <div key={label} className="bg-pink inline-flex items-center px-2 gap-2 shrink-0">
+                  <span className="shrink-0">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ),
@@ -77,16 +113,24 @@ export const OFFER_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[35vw] bg-black px-5 pb-6 pt-4 text-black"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[45vw] xl:w-[35vw] bg-black px-5 pb-6 pt-4 text-black overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex flex-row justify-between items-start">
-            <img src={webdevImg} alt="Web Development" className="w-40 h-40 object-cover" />
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink text-right">02</div>
+            <div className="w-20 h-20 sm:w-28 sm:h-28 lg:w-28 lg:h-28 xl:w-40 xl:h-40 shrink-0">
+              <img src={webdevImg} alt="Web Development" className="w-full h-full object-contain object-left-top shrink-0" />
+            </div>
+            <div className="filter-fuzzy-text text-4xl lg:text-4xl xl:text-5xl font-bold text-pink text-right shrink-0">02</div>
           </div>
-          <div className="text-pink flex flex-col gap-2">
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink">web development</div>
-            <div className="text-xl">University of Caloocan City</div>
+          <div className="text-pink flex flex-col gap-2 mt-auto">
+            <div className="filter-fuzzy-text text-3xl lg:text-4xl xl:text-5xl font-bold text-pink">web development</div>
+            <div className="flex flex-row flex-wrap gap-x-1 gap-y-1 text-black font-bold text-sm lg:text-base xl:text-lg">
+              {WEBDEV_OFFER.map(({ label }) => (
+                <div key={label} className="bg-pink inline-flex items-center px-2 gap-2 shrink-0">
+                  <span className="shrink-0">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ),
@@ -95,16 +139,24 @@ export const OFFER_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[35vw] bg-black px-5 pb-6 pt-4 text-black"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[45vw] xl:w-[35vw] bg-black px-5 pb-6 pt-4 text-black overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex flex-row justify-between items-start">
-            <img src={mobiledevImg} alt="Mobile App Development" className="w-40 h-40 object-cover" />
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink text-right">03</div>
+            <div className="w-20 h-20 sm:w-28 sm:h-28 lg:w-28 lg:h-28 xl:w-40 xl:h-40 shrink-0">
+              <img src={mobiledevImg} alt="Mobile App Development" className="w-full h-full object-contain object-left-top shrink-0" />
+            </div>
+            <div className="filter-fuzzy-text text-4xl lg:text-4xl xl:text-5xl font-bold text-pink text-right shrink-0">03</div>
           </div>
-          <div className="text-pink flex flex-col gap-2">
-            <div className="filter-fuzzy-text text-5xl font-bold text-pink">mobile app development</div>
-            <div className="text-xl">University of Caloocan City</div>
+          <div className="text-pink flex flex-col gap-2 mt-auto">
+            <div className="filter-fuzzy-text text-3xl lg:text-4xl xl:text-5xl font-bold text-pink">mobile app development</div>
+            <div className="flex flex-row flex-wrap gap-x-1 gap-y-1 text-black font-bold text-sm lg:text-base xl:text-lg">
+              {MOBILEDEV_OFFER.map(({ label }) => (
+                <div key={label} className="bg-pink inline-flex items-center px-2 gap-2 shrink-0">
+                  <span className="shrink-0">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ),
@@ -126,14 +178,14 @@ export const EXPERIENCE_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[22vw] bg-black px-5 pb-6 pt-4 text-black"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[30vw] xl:w-[22vw] bg-black px-5 pb-6 pt-4 text-black overflow-y-auto scrollbar-hide mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className=" filter-fuzzy-text text-5xl font-bold text-pink">
+          <div className="filter-fuzzy-text text-3xl lg:text-4xl xl:text-5xl font-bold text-pink">
             education:
           </div>
-          <div className="text-pink flex flex-col">
-            <div className="font-bold text-xl">University of Caloocan City</div>
+          <div className="text-pink flex flex-col mt-auto text-sm lg:text-base xl:text-lg">
+            <div className="font-bold text-base lg:text-lg xl:text-xl">University of Caloocan City</div>
             <div className="italic">Bachelor of Science in Computer Science</div>
             <div className="mb-5">2023 - Present</div>
             <div>Caloocan City, Philippines</div>
@@ -144,20 +196,21 @@ export const EXPERIENCE_ITEMS: Array<
     {
       type: "node",
       node: (
+        // DEAN'S LISTER: Gamit ang flex-col-reverse para umakyat ang label sa mobile!
         <div
-          className="flex flex-col gap-3 h-full w-[43vw] text-black"
+          className="flex flex-col-reverse lg:flex-col gap-3 h-full w-full lg:w-[48vw] xl:w-[43vw] text-black mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="flex-1 min-h-0">
-            <img src="src/assets/deans.jpg" alt="deanslist picture" className="w-full h-full object-cover" />
+          <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
+            <img src="src/assets/deans.webp" alt="deanslist picture" className="w-full h-full object-cover shrink-0" />
           </div>
-          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-row justify-between">
-            <div className="text-lg font-bold mb-3 italic">in the photo:</div>
-            <div className="text-right">
-              <div className="text-lg font-bold">
+          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
+            <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
+            <div className="sm:text-right">
+              <div className="text-base lg:text-lg font-bold">
                 Dean's Lister Achievement for 1st Semester of Junior Year
               </div>
-              <div>January 23, 2026</div>
+              <div className="text-sm lg:text-base">January 23, 2026</div>
             </div>
           </div>
         </div>
@@ -166,21 +219,22 @@ export const EXPERIENCE_ITEMS: Array<
     {
       type: "node",
       node: (
+        // NURTURA: Label na talaga ang una sa code, kaya flex-col na lang.
         <div
-          className="flex flex-col gap-3 h-full w-[43vw] text-black"
+          className="flex flex-col gap-3 h-full w-full lg:w-[48vw] xl:w-[43vw] text-black mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-row justify-between">
-            <div className="text-lg font-bold mb-3 italic">in the photo:</div>
-            <div className="text-right">
-              <div className="text-lg font-bold">
+          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
+            <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
+            <div className="sm:text-right">
+              <div className="text-base lg:text-lg font-bold">
                 Software Engineering: Final Defense for "Nurtura"
               </div>
-              <div>April 13, 2026</div>
+              <div className="text-sm lg:text-base">April 13, 2026</div>
             </div>
           </div>
-          <div className="flex-1 min-h-0">
-            <img src="src/assets/nurtura.jpg" alt="nurtura picture" className="w-full h-full object-cover" />
+          <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
+            <img src="src/assets/nurtura.webp" alt="nurtura picture" className="w-full h-full object-cover shrink-0" />
           </div>
         </div>
       ),
@@ -188,20 +242,21 @@ export const EXPERIENCE_ITEMS: Array<
     {
       type: "node",
       node: (
+        // NETWORKING: Nasa ilalim ang label sa code, kaya flex-col-reverse ulit.
         <div
-          className="flex flex-col gap-3 h-full w-[40vw] text-black"
+          className="flex flex-col-reverse lg:flex-col gap-3 h-full w-full lg:w-[45vw] xl:w-[40vw] text-black mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="flex-1 min-h-0">
-            <img src="src/assets/networking.jpg" alt="deanslist picture" className="w-full h-full object-cover" />
+          <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
+            <img src="src/assets/networking.webp" alt="networking competition" className="w-full h-full object-cover shrink-0" />
           </div>
-          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-row justify-between">
-            <div className="text-lg font-bold mb-3 italic">in the photo:</div>
-            <div className="text-right">
-              <div className="text-lg font-bold">
+          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
+            <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
+            <div className="sm:text-right">
+              <div className="text-base lg:text-lg font-bold">
                 1st Place – Networking Competition (CSD Fair)
               </div>
-              <div>October 10, 2025</div>
+              <div className="text-sm lg:text-base">October 10, 2025</div>
             </div>
           </div>
         </div>
@@ -210,43 +265,42 @@ export const EXPERIENCE_ITEMS: Array<
     {
       type: "node",
       node: (
+        // SHOWCASE: Nasa taas na ang label sa code.
         <div
-          className="flex flex-col gap-3 h-full w-[40vw] text-black"
+          className="flex flex-col gap-3 h-full w-full lg:w-[45vw] xl:w-[40vw] text-black mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-row justify-between">
-            <div className="text-lg font-bold mb-3 italic">in the photo:</div>
-            <div className="text-right">
-              <div className="text-lg font-bold">
+          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
+            <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
+            <div className="sm:text-right">
+              <div className="text-base lg:text-lg font-bold">
                 Software Engineering: Project Showcase
               </div>
-              <div>April 16, 2026</div>
+              <div className="text-sm lg:text-base">April 16, 2026</div>
             </div>
           </div>
-          <div className="flex-1 min-h-0">
-            <img src="src/assets/showcase.jpg" alt="showcase picture" className="w-full h-full object-cover" />
+          <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
+            <img src="src/assets/showcase.webp" alt="showcase picture" className="w-full h-full object-cover shrink-0" />
           </div>
         </div>
       ),
     },
     {
       type: "node",
-      node: (
-        <div className="w-[10vw]"></div>
-      )
+      node: <div className="hidden lg:block lg:w-[5vw]"></div>
     },
     {
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[25vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[32vw] xl:w-[25vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-5xl font-bold filter-fuzzy-text">
+          <div className="filter-fuzzy-text text-3xl lg:text-4xl xl:text-5xl font-bold">
             work experience:
           </div>
-          <div className=" flex flex-col">
-            <div className="font-bold text-xl">Teleperformance - Fairview Terraces</div>
+          <div className="flex flex-col mt-auto text-sm lg:text-base xl:text-lg">
+            <div className="font-bold text-base lg:text-lg xl:text-xl">Teleperformance - Fairview Terraces</div>
             <div className="italic">Customer Service Representative</div>
             <div className="mb-5">2024 - 2026</div>
             <div>Quezon City, Philippines</div>
@@ -257,20 +311,21 @@ export const EXPERIENCE_ITEMS: Array<
     {
       type: "node",
       node: (
+        // WORK PHOTO: Nasa ilalim ang label sa code.
         <div
-          className="flex flex-col gap-3 h-full w-[22vw] text-black"
+          className="flex flex-col-reverse lg:flex-col gap-3 h-full w-full lg:w-[32vw] xl:w-[22vw] text-black mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="flex-1 min-h-0">
-            <img src="src/assets/work.jpg" alt="deanslist picture" className="w-full h-full object-cover" />
+          <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
+            <img src="src/assets/work.webp" alt="work picture" className="w-full h-full object-cover shrink-0" />
           </div>
-          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-row justify-between">
-            <div className="text-lg font-bold mb-3 italic">in the photo:</div>
-            <div className="text-right">
-              <div className="text-lg font-bold">
+          <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
+            <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
+            <div className="sm:text-right">
+              <div className="text-base lg:text-lg font-bold">
                 me at work haha
               </div>
-              <div>December 23, 2025</div>
+              <div className="text-sm lg:text-base">December 23, 2025</div>
             </div>
           </div>
         </div>
@@ -280,13 +335,13 @@ export const EXPERIENCE_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[18vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[24vw] xl:w-[18vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide mb-12 lg:mb-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">
+          <div className="text-2xl xl:text-3xl font-bold">
             awards gained:
           </div>
-          <div>
+          <div className="text-base lg:text-lg mt-auto">
             <div><b className="pr-2">01</b>Top Agent of the Month x3</div>
             <div><b className="pr-2">02</b>Top Trainee</div>
             <div><b className="pr-2">03</b>QAcers x5</div>
@@ -297,89 +352,55 @@ export const EXPERIENCE_ITEMS: Array<
     },
   ];
 
-// #endregion
 
 // =============================================================================
 // #region SKILLS
 // =============================================================================
-import csharpSvg from "../assets/svg/csharp.svg";
-import jsSvg from "../assets/svg/js.svg";
-import typescriptSvg from "../assets/svg/typescript.svg";
-import vbSvg from "../assets/svg/vb.svg";
-import phpSvg from "../assets/svg/php.svg";
-import htmlSvg from "../assets/svg/html.svg";
-import cssSvg from "../assets/svg/css.svg";
-import sqlSvg from "../assets/svg/sql.svg";
-
-import reactSvg from "../assets/svg/react.svg";
-import nextJsSvg from "../assets/svg/nextjs.svg";
-import angularSvg from "../assets/svg/angular.svg";
-import laravelSvg from "../assets/svg/laravel.svg";
-
-// imports sa constants.tsx
-import gitSvg from "../assets/svg/git.svg";
-import githubSvg from "../assets/svg/github_white.svg";
-import npmSvg from "../assets/svg/npm.svg";
-import vsSvg from "../assets/svg/vs.svg";
-import vscodeSvg from "../assets/svg/vscode.svg";
-import vercelSvg from "../assets/svg/vercel_white.svg";
-
-import firebaseSvg from "../assets/svg/firebase.svg";
-import supabaseSvg from "../assets/svg/supabase.svg";
-import postgresqlSvg from "../assets/svg/postgresql.svg";
-import msaccessSvg from "../assets/svg/msacess.svg";
-import mongodbSvg from "../assets/svg/mongodb.svg";
-
-import figmaSvg from "../assets/svg/figma.svg";
-import canvaSvg from "../assets/svg/canva.svg";
-import photoshopSvg from "../assets/svg/photoshop.svg";
-import illustratorSvg from "../assets/svg/illustrator.svg";
 
 const LANGUAGES = [
-  { label: "C#", icon: csharpSvg },
-  { label: "JavaScript", icon: jsSvg },
-  { label: "TypeScript", icon: typescriptSvg },
-  { label: "VB.NET", icon: vbSvg },
-  { label: "PHP", icon: phpSvg },
-  { label: "HTML", icon: htmlSvg },
-  { label: "CSS", icon: cssSvg },
-  { label: "SQL", icon: sqlSvg },
+  { label: "C#" },
+  { label: "JavaScript" },
+  { label: "TypeScript" },
+  { label: "VB.NET" },
+  { label: "PHP" },
+  { label: "HTML" },
+  { label: "CSS" },
+  { label: "SQL" },
 ];
 
 const FRAMEWORKS = [
-  { label: "React", icon: reactSvg },
-  { label: "React Native", icon: reactSvg },
-  { label: "Next.JS", icon: nextJsSvg },
-  { label: "Angular", icon: angularSvg },
-  { label: "Laravel", icon: laravelSvg },
+  { label: "React" },
+  { label: "React Native" },
+  { label: "Next.JS" },
+  { label: "Angular" },
+  { label: "Laravel" },
 ];
 
 const TOOLS = [
-  { label: "Git", icon: gitSvg },
-  { label: "GitHub", icon: githubSvg },
-  { label: "npm", icon: npmSvg },
-  { label: "Visual Studio", icon: vsSvg },
-  { label: "Visual Studio Code", icon: vscodeSvg },
-  { label: "Vercel", icon: vercelSvg },
+  { label: "Git" },
+  { label: "GitHub" },
+  { label: "npm" },
+  { label: "Visual Studio" },
+  { label: "Visual Studio Code" },
+  { label: "Vercel" },
 ];
 
 const DATABASE = [
-  { label: "MySQL", icon: null },
-  { label: "SQLite", icon: null },
-  { label: "Firebase", icon: firebaseSvg },
-  { label: "Supabase", icon: supabaseSvg },
-  { label: "PostgreSQL", icon: postgresqlSvg },
-  { label: "Microsoft Access", icon: msaccessSvg },
-  { label: "MongoDB", icon: mongodbSvg },
+  { label: "MySQL" },
+  { label: "SQLite" },
+  { label: "Firebase" },
+  { label: "Supabase" },
+  { label: "PostgreSQL" },
+  { label: "Microsoft Access" },
+  { label: "MongoDB" },
 ];
 
 const TOOLS_VISUALS = [
-  { label: "Figma", icon: figmaSvg },
-  { label: "Canva", icon: canvaSvg },
-  { label: "Photoshop", icon: photoshopSvg },
-  { label: "Illustrator", icon: illustratorSvg },
+  { label: "Figma" },
+  { label: "Canva" },
+  { label: "Photoshop" },
+  { label: "Illustrator" },
 ]
-
 
 export const BENTO_ITEMS: Array<
   | { type: "tile"; label: string; sub: string; size: string }
@@ -388,28 +409,28 @@ export const BENTO_ITEMS: Array<
     {
       type: "node",
       node: (
+        // DITO TAYO NAG-APPLY NG flex-col-reverse lg:flex-col PARA UMAKYAT ANG "TECHNICAL"
         <div
-          className="flex flex-col h-full justify-between w-[25vw] text-pink"
+          className="flex flex-col-reverse lg:flex-col h-full justify-between w-full lg:w-[32vw] xl:w-[25vw] text-pink gap-4 lg:gap-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="bg-black px-5 pb-6 pt-4">
-            <div className="text-3xl font-bold mb-15">
+          {/* LANGUAGES (Aakyat ito sa desktop, bababa sa mobile) */}
+          <div className="bg-black px-5 pb-6 pt-4 h-full lg:h-auto overflow-y-auto scrollbar-hide flex-1">
+            <div className="text-2xl lg:text-3xl font-bold mb-6 xl:mb-15">
               languages:
             </div>
-            <div className="text-md flex flex-row flex-wrap gap-x-1 gap-y-1 text-black font-bold text-lg">
-              {LANGUAGES.map(({ label, icon }) => (
-                <div key={label} className="bg-pink inline-flex items-center p-1 gap-2">
-                  <div className="bg-black rounded-sm p-1 flex items-center justify-center">
-                    <img src={icon} alt={label} className="w-5 h-5" />
-                  </div>
-                  {label}
+            <div className="flex flex-row flex-wrap gap-x-1 gap-y-1 text-black font-bold text-sm lg:text-base xl:text-lg">
+              {LANGUAGES.map(({ label }) => (
+                <div key={label} className="bg-pink inline-flex items-center px-2 gap-2 shrink-0">
+                  <span className="shrink-0">{label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-green p-6">
-            <div className="text-6xl text-pink font-bold filter-fuzzy-text ">
+          {/* TECHNICAL BANNER (Aakyat ito sa mobile, bababa sa desktop) */}
+          <div className="bg-green p-6 flex items-center shrink-0">
+            <div className="filter-fuzzy-text text-4xl lg:text-5xl xl:text-6xl text-pink font-bold">
               technical
             </div>
           </div>
@@ -420,21 +441,16 @@ export const BENTO_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[18vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[24vw] xl:w-[18vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold">
             technologies:
           </div>
-          <div className="text-black flex items-start justify-start flex-wrap gap-1 font-bold text-lg">
-            {FRAMEWORKS.map(({ label, icon }) => (
-              <div key={label} className="bg-pink inline-flex items-center p-1 gap-2">
-                {icon && (
-                  <div className="bg-black rounded-sm p-1 flex items-center justify-center">
-                    <img src={icon} alt={label} className="w-5 h-5" />
-                  </div>
-                )}
-                {label}
+          <div className="text-black flex items-start justify-start flex-wrap gap-1 font-bold text-sm lg:text-base xl:text-lg mt-auto">
+            {FRAMEWORKS.map(({ label }) => (
+              <div key={label} className="bg-pink inline-flex items-center px-2 gap-2 shrink-0">
+                <span className="shrink-0">{label}</span>
               </div>
             ))}
           </div>
@@ -445,19 +461,14 @@ export const BENTO_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[16vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[22vw] xl:w-[16vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">tools:</div>
-          <div className="flex flex-wrap gap-1">
-            {TOOLS.map(({ label, icon }) => (
-              <div key={label} className="bg-pink text-black inline-flex items-center p-1 gap-2 font-bold text-lg">
-                {icon && (
-                  <div className="bg-black rounded-sm p-1 flex items-center justify-center">
-                    <img src={icon} alt={label} className="w-5 h-5" />
-                  </div>
-                )}
-                {label}
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold">tools:</div>
+          <div className="flex flex-wrap gap-1 text-sm lg:text-base xl:text-lg mt-auto">
+            {TOOLS.map(({ label }) => (
+              <div key={label} className="bg-pink text-black inline-flex items-center px-2 gap-2 font-bold shrink-0">
+                <span className="shrink-0">{label}</span>
               </div>
             ))}
           </div>
@@ -468,19 +479,14 @@ export const BENTO_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[16vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[22vw] xl:w-[16vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">database:</div>
-          <div className="flex flex-wrap gap-1">
-            {DATABASE.map(({ label, icon }) => (
-              <div key={label} className="bg-pink text-black inline-flex items-center p-1 gap-2 font-bold text-lg">
-                {icon && (
-                  <div className="bg-black rounded-sm p-1 flex items-center justify-center">
-                    <img src={icon} alt={label} className="w-5 h-5" />
-                  </div>
-                )}
-                {label}
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold">database:</div>
+          <div className="flex flex-wrap gap-1 text-sm lg:text-base xl:text-lg mt-auto">
+            {DATABASE.map(({ label }) => (
+              <div key={label} className="bg-pink text-black inline-flex items-center px-2 gap-2 font-bold shrink-0">
+                <span className="shrink-0">{label}</span>
               </div>
             ))}
           </div>
@@ -491,48 +497,46 @@ export const BENTO_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[16vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[22vw] xl:w-[16vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold">
             other:
           </div>
-          <div>
+          <div className="text-sm lg:text-base xl:text-lg mt-auto">
             <div><b className="pr-2">01</b>JIRA</div>
             <div><b className="pr-2">02</b>Zendesk</div>
             <div><b className="pr-2">03</b>Amazon Connect</div>
-            <div><b className="pr-2">03</b>Slack</div>
-            <div><b className="pr-2">03</b>Maestro QA</div>
+            <div><b className="pr-2">04</b>Slack</div>
+            <div><b className="pr-2">05</b>Maestro QA</div>
           </div>
         </div>
       ),
     },
     {
       type: "node",
-      node: (
-        <div
-          className="w-[5vw]"
-        >
-        </div>
-      ),
+      node: <div className="hidden lg:block lg:w-[5vw]"></div>,
     },
     {
       type: "node",
       node: (
+        // DITO flex-col NA LANG DAHIL NAUNA NA TALAGA YUNG "VISUAL" SA CODE
         <div
-          className="flex flex-col w-[25vw] h-full justify-between"
+          className="flex flex-col w-full lg:w-[32vw] xl:w-[25vw] h-full justify-between gap-4 lg:gap-0 mt-12 lg:mt-0"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="bg-green p-6 flex justify-end items-center">
-            <div className="text-6xl text-pink font-bold filter-fuzzy-text">
+          {/* VISUAL BANNER */}
+          <div className="bg-green p-6 flex justify-start lg:justify-end items-center shrink-0">
+            <div className="filter-fuzzy-text text-4xl lg:text-5xl xl:text-6xl text-pink font-bold">
               visual
             </div>
           </div>
 
-          <div className="bg-black px-5 pb-6 pt-4 flex flex-col  text-pink text-md">
-            <div className="flex flex-col justify-between gap-6">
-              <div className="font-bold text-3xl text-pink">traits:</div>
-              <div className="text-md flex flex-row justify-between">
+          {/* TRAITS */}
+          <div className="bg-black px-5 pb-6 pt-4 flex flex-col text-pink text-md flex-1 overflow-y-auto scrollbar-hide">
+            <div className="flex flex-col justify-between gap-4 xl:gap-6 h-full">
+              <div className="font-bold text-xl lg:text-2xl xl:text-3xl text-pink">traits:</div>
+              <div className="text-sm lg:text-base flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 mt-auto">
                 <div>
                   <div><b className="pr-2">01</b>Consistent</div>
                   <div><b className="pr-2">02</b>Detail-oriented</div>
@@ -546,7 +550,6 @@ export const BENTO_ITEMS: Array<
               </div>
             </div>
           </div>
-
         </div>
       ),
     },
@@ -554,39 +557,33 @@ export const BENTO_ITEMS: Array<
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[16vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[22vw] xl:w-[16vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold text-pink">tools:</div>
-          <div className="flex flex-wrap gap-1">
-            {TOOLS_VISUALS.map(({ label, icon }) => (
-              <div key={label} className="bg-pink text-black inline-flex items-center p-1 gap-2 font-bold text-lg">
-                {icon && (
-                  <div className="bg-black rounded-sm p-1 flex items-center justify-center">
-                    <img src={icon} alt={label} className="w-5 h-5" />
-                  </div>
-                )}
-                {label}
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-pink">tools:</div>
+          <div className="flex flex-wrap gap-1 text-sm lg:text-base xl:text-lg mt-auto">
+            {TOOLS_VISUALS.map(({ label }) => (
+              <div key={label} className="bg-pink text-black inline-flex items-center px-2 gap-2 font-bold shrink-0">
+                <span className="shrink-0">{label}</span>
               </div>
             ))}
           </div>
         </div>
       ),
     },
-
     {
       type: "node",
       node: (
         <div
-          className="flex flex-col gap-3 h-full justify-between w-[16vw] bg-black px-5 pb-6 pt-4 text-pink"
+          className="flex flex-col gap-3 h-full justify-between w-full lg:w-[22vw] xl:w-[16vw] bg-black px-5 pb-6 pt-4 text-pink overflow-y-auto scrollbar-hide"
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
-          <div className="text-3xl font-bold">
+          <div className="text-xl lg:text-2xl xl:text-3xl font-bold">
             inspo:
           </div>
-          <div>
+          <div className="text-sm lg:text-base xl:text-lg mt-auto">
             <div><b className="pr-2">01</b>Pinterest</div>
-            <div><b className="pr-2">02</b>Dribble</div>
+            <div><b className="pr-2">02</b>Dribbble</div>
             <div><b className="pr-2">03</b>Behance</div>
             <div><b className="pr-2">04</b>Awwwards</div>
           </div>
@@ -594,8 +591,6 @@ export const BENTO_ITEMS: Array<
       ),
     },
   ];
-
-// #endregion
 
 // =============================================================================
 // #region PROJECTS TRANSITION
@@ -615,8 +610,12 @@ export const PROJECTS_DEV = [
     name: "Antidote Rush!",
     shortDescription:
       "A fast-paced zombie survival game focused on combat and anitdote collection.",
-    subtitle:
-      "A top-down p5.js web-based survival game where players fight waves of zombies while collecting antidotes across the map.",
+
+    subtitle: [
+      "A social networking platform allowing users to chat real-time and make public or anonymous posts.",
+      "Instead of focusing on a single mission, the game emphasizes endurance, strategic movement, and score accumulation.",
+      "The main goal of the player is to survive as long as possible while earning the highest possible score by defeating zombies and collecting antidotes."
+    ],
     year: "2026",
     position: "Full-Stack Developer",
     techStack: [
@@ -638,8 +637,12 @@ export const PROJECTS_DEV = [
     name: "Yusisay",
     shortDescription:
       "A social platform for real-time chat and anonymous or public posting.",
-    subtitle:
+    subtitle: [
       "A social networking platform allowing users to chat real-time and make public or anonymous posts.",
+      "This project’s objective is to provide a social platform that creates a safe and friendly environment and to allow students and staff to communicate freely and anonymously.",
+      "This website motivates them to open their expression, shares ideas, and gives them the ability to interact within their community in a virtual space."
+    ],
+
     year: "2025",
     position: "Full-Stack Developer",
     techStack: [
@@ -659,8 +662,11 @@ export const PROJECTS_DEV = [
     name: "HapiKopi POS (Client)",
     shortDescription:
       "A mobile POS system for managing sales, inventory, and cash flow insights.",
-    subtitle:
-      "An Android POS system built for HapiKopi that enables baristas to record sales, and admins to manage available items and see forecast of cashflows.",
+    subtitle: [
+      "A modern Point-of-Sale (POS) system designed specifically for HappyKopi that aims to streamline daily operations through an intuitive interface for order management, payment processing, and real-time inventory tracking.",
+      "The system provides actionable sales insights for owners, enhancing business efficiency and customer service, all packaged in a dedicated application for SUNMI POS hardware.",
+      "This project is designed to replace manual or outdated processes with a single, efficient, and user-friendly digital solution."
+    ],
     year: "2025",
     position: "Frontend Developer, UI/UX Designer",
     techStack: [
@@ -681,8 +687,11 @@ export const PROJECTS_DEV = [
     name: "UCC Food Tracker",
     shortDescription:
       "A campus food ordering system for browsing options and managing carts.",
-    subtitle:
-      "A WinForms campus food ordering interface for browsing available food options around the campus and managing carts.",
+    subtitle: [
+      "This innovative system has been designed to offer users a comprehensive overview of the food choices available within the premises of UCC as well as in the immediate vicinity of the campus.",
+      "In essence, the system acts as a virtual menu, offering a view of the appetizing choices available. Users can seamlessly navigate through a wide array of food items, each accompanied by its corresponding price tag, enabling them to make well-informed decisions based on their budgetary constraints.",
+      "The system allows users near UCC to explore a variety of affordable food options conveniently. It provides a comprehensive list of available food items, including prices, names, and stall details. Users can access this information effortlessly, making informed dining choices within their budget constraints."
+    ],
     year: "2023",
     position: "Frontend Developer",
     techStack: ["C#", ".NET", "MS Access", "GitHub", "Visual Studio"],
@@ -786,8 +795,14 @@ export const TOP_PICKS = [
     name: "Nurtura",
     shortDescription:
       "An IoT app for real-time plant care automation using sensor data.",
-    subtitle:
+    subtitle: [
       "A real-time IoT mobile app that allows user to see automation of plant care using live sensor data for watering and lighting.",
+      "The system employs a hybrid architecture combining Event-Driven Architecture (EDA) for real-time IoT communication and Layered Architecture for structured system organization.",
+      "The system allows users to add a farm to the system and customize their rack product, including the soil type, location, and maintenance preferences for each plant.",
+      "The system utilizes real-time sensor data and predefined plant parameters to automatically manage watering and lighting, ensuring optimal growth conditions through a rule-based automation process.",
+      "Also,  the system user receives real-time updates on environmental status and sensor/device maintenance needs. Alerts also include corrective suggestions for unusual conditions."
+    ],
+
     year: "2026",
     position: "Lead Frontend Developer, Lead UI/UX Designer",
     techStack: [
@@ -801,7 +816,7 @@ export const TOP_PICKS = [
       "GitHub",
       "VS Code",
     ],
-    image: "/src/assets/tiles/nurtura.png",
+    image: "/src/assets/tiles/nurtura.webp",
     hasGithub: true,
     githubUrl: "https://github.com/neoaia/nurtura-frontend",
   },
@@ -826,7 +841,7 @@ export const TOP_PICKS = [
       "GitHub",
       "VS Code",
     ],
-    image: "/src/assets/tiles/portfolio.png",
+    image: "/src/assets/tiles/portfolio.webp",
     hasSite: true,
     siteUrl: "https://neoisaiahnimo.com",
   },
@@ -835,12 +850,14 @@ export const TOP_PICKS = [
     name: "ButiKa",
     shortDescription:
       "A system for managing pharmacy inventory, sales, and prescriptions.",
-    subtitle:
-      "A pharmacy inventory and sales management system for browsing medicines, processing orders and prescriptions, and managing stocks.",
+    subtitle: [
+      "The Buti-Ka Pharmacy Management System organizes prescription, transactions, and stock management processes to enhance pharmacy operations workflow. In addition to enabling front-end and back-end pharmacy services, it provides essential capabilities for record-keeping, stock management, and decision-making.",
+      "The system is limited to in-person payment, requiring customers to present the transaction details to the pharmacist using the receipt provided online."
+    ],
     year: "2025",
     position: "Full-Stack Developer",
     techStack: ["C#", ".NET", "VB", "MySQL", "GitHub", "Visual Studio"],
-    image: "/src/assets/tiles/butika.png",
+    image: "/src/assets/tiles/butika.webp",
     hasGithub: true,
     githubUrl: "https://github.com/zchuwie/butika-extension"
   },
