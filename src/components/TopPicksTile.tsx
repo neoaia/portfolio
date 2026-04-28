@@ -4,7 +4,7 @@ import arrowCircle from "../assets/arrowcircle.svg";
 interface TopPicksTileProps {
     index: string;
     name: string;
-    subtitle: string;
+    subtitle: string | string[];
     position?: string;
     year: string;
     image: string;

@@ -5,7 +5,7 @@ type TopPick = {
     index: string;
     name: string;
     shortDescription: string;
-    subtitle: string;
+    subtitle: string | string[];
     year: string;
     position: string;
     techStack?: string[];

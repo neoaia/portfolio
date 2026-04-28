@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ProjectGroup } from "./components/ProjectGroup";
 import { type ProjectTileHandle } from "./components/ProjectTile";
 import { TopPicks } from "./components/TopPicks";
@@ -877,7 +877,7 @@ function App() {
   // Smooth scroll loop
   // ---------------------------------------------------------------------------
 
-  const animateScroll = () => {
+  const animateScroll = useCallback(function animateScrollLoop() {
     const container = scrollRef.current;
     if (!container) return;
     const LERP = isSmall ? 0.12 : 0.085;
@@ -893,16 +893,16 @@ function App() {
     }
     currentScrollRef.current += diff * LERP;
     container.scrollTop = currentScrollRef.current;
-    rafRef.current = requestAnimationFrame(animateScroll);
-  };
+    rafRef.current = requestAnimationFrame(animateScrollLoop);
+  }, [isSmall]);
 
-  const startScroll = () => {
+  const startScroll = useCallback(() => {
     if (!isScrollingRef.current) {
       isScrollingRef.current = true;
       currentScrollRef.current = scrollRef.current?.scrollTop || 0;
       rafRef.current = requestAnimationFrame(animateScroll);
     }
-  };
+  }, [animateScroll]);
 
   // ---------------------------------------------------------------------------
   // Nav click
@@ -1007,7 +1007,7 @@ function App() {
       container.removeEventListener("touchend", onTouchEnd);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [isSmall, isAppReady]); // Added isAppReady to dependency
+  }, [isSmall, isAppReady, startScroll]);
 
   // ---------------------------------------------------------------------------
   // Nav color + contact z-index + Inspire
