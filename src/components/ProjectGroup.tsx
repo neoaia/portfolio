@@ -28,8 +28,13 @@ type ProjectGroupProps = {
 export const ProjectGroup = ({ title, projects, onTileMount, onTileClick, unfinished }: ProjectGroupProps) => (
     <div>
         <div
-            className="text-black filter-fuzzy-text-title self-start pl-9"
-            style={{ fontFamily: "Geist, sans-serif", fontSize: "13vh", fontWeight: "bolder", letterSpacing: "-0.08em" }}
+            className="text-black filter-fuzzy-text-title self-start pl-4 md:pl-9"
+            style={{
+                fontFamily: "Geist, sans-serif",
+                fontSize: "clamp(3rem, 13vw, 13vh)",
+                fontWeight: "bolder",
+                letterSpacing: "-0.08em",
+            }}
         >
             {title}
         </div>

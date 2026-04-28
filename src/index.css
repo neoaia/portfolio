@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-green: #849E17;
-  --color-pink: #F5D6FF;
-  --color-black: #1E1E1E; 
+  --color-green: #849e17;
+  --color-pink: #f5d6ff;
+  --color-black: #1e1e1e;
 }
 
 :root {
@@ -13,21 +13,22 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-body,
-html,
-* {
+  /* Prevent iOS font size inflation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  /* Prevent overscroll bounce on iOS from affecting layout */
+  overscroll-behavior: none;
 }
 
 .portfolio-root {
   font-family: "Albert Sans", sans-serif;
+  /* Ensure touch scrolling feels native */
+  -webkit-overflow-scrolling: touch;
 }
-
 
 .custom-cursor {
   left: var(--cursor-x);
@@ -42,5 +43,12 @@ body {
 
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* ── Safe area support for notched phones ── */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .contact-footer-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1.25rem);
   }
 }

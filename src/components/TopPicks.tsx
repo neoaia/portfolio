@@ -26,15 +26,21 @@ type TopPicksProps = {
 };
 
 export const TopPicks = ({ title = "favoritezz*", picks, onPickClick, onTileMount }: TopPicksProps) => (
-    <div className="px-9 py-10">
+    <div className="px-4 md:px-9 py-8 md:py-10">
         <div
-            className="text-black filter-fuzzy-text-title self-start mb-6"
-            style={{ fontFamily: "Geist, sans-serif", fontSize: "13vh", fontWeight: "bolder", letterSpacing: "-0.08em" }}
+            className="text-black filter-fuzzy-text-title self-start mb-4 md:mb-6"
+            style={{
+                fontFamily: "Geist, sans-serif",
+                fontSize: "clamp(3rem, 13vw, 13vh)",
+                fontWeight: "bolder",
+                letterSpacing: "-0.08em",
+            }}
         >
             {title}
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        {/* 1 col on mobile, 2 on tablet, 3 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {picks.slice(0, 3).map((pick, i) => (
                 <TopPicksTile
                     key={i}
