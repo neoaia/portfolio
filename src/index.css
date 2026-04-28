@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green: #849E17;
+  --color-pink: #F5D6FF;
+  --color-black: #1E1E1E; 
+}
+
+:root {
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html,
+* {
+}
+
+body {
+  margin: 0;
+}
+
+.portfolio-root {
+  font-family: "Albert Sans", sans-serif;
+}
+
+
+.custom-cursor {
+  left: var(--cursor-x);
+  top: var(--cursor-y);
+  transform: translate(-50%, -50%);
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
