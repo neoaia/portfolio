@@ -5,7 +5,7 @@ type Project = {
     index: string;
     name: string;
     shortDescription: string;
-    subtitle: string;
+    subtitle: string | string[];
     position: string;
     year: string;
     techStack?: string[];

@@ -5,7 +5,7 @@ interface ProjectTileProps {
     index: string;
     name: string;
     shortDescription: string;
-    subtitle: string;
+    subtitle: string | string[];
     year: string;
     cover?: string;
     unfinished?: boolean;

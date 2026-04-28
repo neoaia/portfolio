@@ -47,6 +47,14 @@ export const INSPIRE_WORDS = [
 import uiuxImg from "../assets/uiux.webp";
 import webdevImg from "../assets/webdev.webp";
 import mobiledevImg from "../assets/mobiledev.webp";
+import deansImg from "../assets/deans.webp";
+import nurtureImg from "../assets/nurtura.webp";
+import networkingImg from "../assets/networking.webp";
+import showcaseImg from "../assets/showcase.webp";
+import workImg from "../assets/work.webp";
+import nurtureTileImg from "../assets/tiles/nurtura.webp";
+import portfolioTileImg from "../assets/tiles/portfolio.webp";
+import butikaTileImg from "../assets/tiles/butika.webp";
 
 const UIUX_OFFER = [
   { label: "Animation" },
@@ -202,7 +210,7 @@ export const EXPERIENCE_ITEMS: Array<
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
-            <img src="src/assets/deans.webp" alt="deanslist picture" className="w-full h-full object-cover shrink-0" />
+            <img src={deansImg} alt="deanslist picture" className="w-full h-full object-cover shrink-0" />
           </div>
           <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
             <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
@@ -234,7 +242,7 @@ export const EXPERIENCE_ITEMS: Array<
             </div>
           </div>
           <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
-            <img src="src/assets/nurtura.webp" alt="nurtura picture" className="w-full h-full object-cover shrink-0" />
+            <img src={nurtureImg} alt="nurtura picture" className="w-full h-full object-cover shrink-0" />
           </div>
         </div>
       ),
@@ -248,7 +256,7 @@ export const EXPERIENCE_ITEMS: Array<
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
-            <img src="src/assets/networking.webp" alt="networking competition" className="w-full h-full object-cover shrink-0" />
+            <img src={networkingImg} alt="networking competition" className="w-full h-full object-cover shrink-0" />
           </div>
           <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
             <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
@@ -280,7 +288,7 @@ export const EXPERIENCE_ITEMS: Array<
             </div>
           </div>
           <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
-            <img src="src/assets/showcase.webp" alt="showcase picture" className="w-full h-full object-cover shrink-0" />
+            <img src={showcaseImg} alt="showcase picture" className="w-full h-full object-cover shrink-0" />
           </div>
         </div>
       ),
@@ -317,7 +325,7 @@ export const EXPERIENCE_ITEMS: Array<
           style={{ fontFamily: "Geist, sans-serif", letterSpacing: "-0.065em" }}
         >
           <div className="flex-1 min-h-[200px] lg:min-h-0 overflow-hidden">
-            <img src="src/assets/work.webp" alt="work picture" className="w-full h-full object-cover shrink-0" />
+            <img src={workImg} alt="work picture" className="w-full h-full object-cover shrink-0" />
           </div>
           <div className="bg-black text-pink px-5 pb-6 pt-4 flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 shrink-0">
             <div className="text-base lg:text-lg font-bold sm:mb-3 italic">in the photo:</div>
@@ -816,7 +824,7 @@ export const TOP_PICKS = [
       "GitHub",
       "VS Code",
     ],
-    image: "/src/assets/tiles/nurtura.webp",
+    image: nurtureTileImg,
     hasGithub: true,
     githubUrl: "https://github.com/neoaia/nurtura-frontend",
   },
@@ -841,7 +849,7 @@ export const TOP_PICKS = [
       "GitHub",
       "VS Code",
     ],
-    image: "/src/assets/tiles/portfolio.webp",
+    image: portfolioTileImg,
     hasSite: true,
     siteUrl: "https://neoisaiahnimo.com",
   },
@@ -857,7 +865,7 @@ export const TOP_PICKS = [
     year: "2025",
     position: "Full-Stack Developer",
     techStack: ["C#", ".NET", "VB", "MySQL", "GitHub", "Visual Studio"],
-    image: "/src/assets/tiles/butika.webp",
+    image: butikaTileImg,
     hasGithub: true,
     githubUrl: "https://github.com/zchuwie/butika-extension"
   },
